@@ -24,4 +24,4 @@ int main()
 		cin >> arr[i];
 	maxint(arr, N);
 }
- n
+ 

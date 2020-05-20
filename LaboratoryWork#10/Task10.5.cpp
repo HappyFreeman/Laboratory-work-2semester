@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-using namespace std; // в место bool я испоьзовал void )))
+using namespace std; 
 
 class publication {
 private:
@@ -22,8 +22,8 @@ public:
 		cout << "\nPrice: " << price;
 	}
 
-	virtual void isQveersize() {
-		cout << "Превышение размера!\n";
+	virtual bool isQveersize() {
+		return true;
 	}
 
 };
@@ -51,8 +51,8 @@ public:
 		cout << "\nPages: " << pages;
 	}
 
-	void isQveersize() override {
-		if (pages > 800) publication::isQveersize();
+	 bool isQveersize() override {
+		return pages > 800;
 	}
 
 };
@@ -79,8 +79,8 @@ public:
 
 	}
 
-	void isQveersize() override {
-		if (time > 90) publication::isQveersize();
+	bool isQveersize() override {
+		return time > 90;
 	}
 
 };
@@ -109,7 +109,9 @@ int main()
 			pubarr[n] = new tape; // put in array
 
 		pubarr[n++]->getdata(); //get data for object
-
+		if (pubarr[n]->isQveersize()) {
+			cout << "Oveersize\n";
+		}
 		cout << " Enter another (y/n)? "; //another pub?
 
 		cin >> choice;
