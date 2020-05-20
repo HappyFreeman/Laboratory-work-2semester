@@ -108,10 +108,13 @@ int main()
 
 			pubarr[n] = new tape; // put in array
 
-		pubarr[n++]->getdata(); //get data for object
-		if (pubarr[n]->isQveersize()) {
-			cout << "Oveersize\n";
-		}
+		do {
+			pubarr[n]->getdata();
+			if (pubarr[n]->isQveersize())
+				cout << "Oversized!\n";
+			else break;
+		} while (true);
+
 		cout << " Enter another (y/n)? "; //another pub?
 
 		cin >> choice;
